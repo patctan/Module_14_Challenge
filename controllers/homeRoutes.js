@@ -2,12 +2,6 @@ const router = require("express").Router();
 const { Post, User } = require("../models");
 const withAuth = require("../utils/auth");
 
-//What /___ routes do we want on the homepage?
-// homepage
-//dashboard
-//login
-//signup
-
 router.get("/", async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -87,17 +81,3 @@ router.get("/login", (req, res) => {
 
 module.exports = router;
 
-// router.get("/", async (req, res) => {
-//     try {
-//       const dbGalleryData = await Gallery.findAll({
-//         include: [
-//           {
-//             model: Painting,
-//             attributes: ["filename", "description"],
-//           },
-//         ],
-//       });
-
-//       const galleries = dbGalleryData.map((gallery) =>
-//         gallery.get({ plain: true })
-//       );
