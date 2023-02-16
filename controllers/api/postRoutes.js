@@ -1,4 +1,4 @@
-router = require('express').Router();
+const router = require('express').Router();
 // const router = require('.');
 const { Post } =require('../../models');
 // const { restore } = require('../../models/user');
