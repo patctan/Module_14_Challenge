@@ -2,7 +2,7 @@ const path = require('path');
 const express = require("express");
 const session = require("express-session");
 const exphbs = require('express-handlebars');
-const routes = require("./controllers/index.js");
+const routes = require("./controllers");
 const helpers = require('./utils/helpers');
 
 const sequelize = require("./config/connection");
@@ -15,7 +15,12 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: "Tsuchinoko",
-  cookie: {},
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
